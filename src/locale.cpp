@@ -44,6 +44,10 @@
 #pragma clang diagnostic ignored "-Wsign-conversion"
 #endif
 
+extern "C" void ontio_assert( unsigned int test, const char* msg  );
+size_t strftime(char*, size_t, const char*, const struct tm*) { ontio_assert(false, "error: strftime called"); }
+size_t strftime_l(char*, size_t, const char*, const struct tm*, locale_t) { ontio_assert(false, "error: strftime_l called"); }
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 struct __libcpp_unique_locale {

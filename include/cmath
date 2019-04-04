@@ -408,7 +408,9 @@ using ::expm1;
 using ::expm1f;
 using ::fdim;
 using ::fdimf;
+#ifdef NO_ONTOLOGY_WASM
 using ::fmaf;
+#endif
 using ::fma;
 using ::fmax;
 using ::fmaxf;
@@ -496,7 +498,9 @@ using ::erfcl;
 using ::exp2l;
 using ::expm1l;
 using ::fdiml;
+#ifdef NO_ONTOLOGY_WASM
 using ::fmal;
+#endif
 using ::fmaxl;
 using ::fminl;
 using ::hypotl;

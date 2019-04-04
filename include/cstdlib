@@ -119,8 +119,10 @@ using ::strtoul;
 #ifndef _LIBCPP_HAS_NO_LONG_LONG
 using ::strtoull;
 #endif // _LIBCPP_HAS_NO_LONG_LONG
+#ifdef NO_ONTOLOGY_WASM
 using ::rand;
 using ::srand;
+#endif
 using ::calloc;
 using ::free;
 using ::malloc;

@@ -190,8 +190,10 @@ float          fdimf(float x, float y);
 long double    fdiml(long double x, long double y);
 
 floating_point fma (arithmetic x, arithmetic y, arithmetic z);
+#ifdef NO_ONTOLOGY_WASM
 float          fmaf(float x, float y, float z);
 long double    fmal(long double x, long double y, long double z);
+#endif
 
 floating_point fmax (arithmetic x, arithmetic y);
 float          fmaxf(float x, float y);
@@ -1190,6 +1192,7 @@ fdim(_A1 __lcpp_x, _A2 __lcpp_y) _NOEXCEPT
 
 // fma
 
+#ifdef NO_ONTOLOGY_WASM
 inline _LIBCPP_INLINE_VISIBILITY float       fma(float __lcpp_x, float __lcpp_y, float __lcpp_z) _NOEXCEPT                   {return ::fmaf(__lcpp_x, __lcpp_y, __lcpp_z);}
 inline _LIBCPP_INLINE_VISIBILITY long double fma(long double __lcpp_x, long double __lcpp_y, long double __lcpp_z) _NOEXCEPT {return ::fmal(__lcpp_x, __lcpp_y, __lcpp_z);}
 
@@ -1210,6 +1213,7 @@ fma(_A1 __lcpp_x, _A2 __lcpp_y, _A3 __lcpp_z) _NOEXCEPT
                      std::is_same<_A3, __result_type>::value)), "");
     return ::fma((__result_type)__lcpp_x, (__result_type)__lcpp_y, (__result_type)__lcpp_z);
 }
+#endif
 
 // fmax
 

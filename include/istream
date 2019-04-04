@@ -52,9 +52,11 @@ public:
     basic_istream& operator>>(unsigned long& n);
     basic_istream& operator>>(long long& n);
     basic_istream& operator>>(unsigned long long& n);
+#if defined(WASM_FLOAT_SUPPORT)
     basic_istream& operator>>(float& f);
     basic_istream& operator>>(double& f);
     basic_istream& operator>>(long double& f);
+#endif  // WASM_FLOAT_SUPPORT
     basic_istream& operator>>(void*& p);
 
     // 27.7.1.3 Unformatted input:
@@ -239,9 +241,11 @@ public:
     basic_istream& operator>>(unsigned long& __n);
     basic_istream& operator>>(long long& __n);
     basic_istream& operator>>(unsigned long long& __n);
+#if defined(WASM_FLOAT_SUPPORT)
     basic_istream& operator>>(float& __f);
     basic_istream& operator>>(double& __f);
     basic_istream& operator>>(long double& __f);
+#endif  // WASM_FLOAT_SUPPORT
     basic_istream& operator>>(void*& __p);
 
     // 27.7.1.3 Unformatted input:
@@ -427,6 +431,7 @@ basic_istream<_CharT, _Traits>::operator>>(unsigned long long& __n)
     return _VSTD::__input_arithmetic<unsigned long long>(*this, __n);
 }
 
+#if defined(WASM_FLOAT_SUPPORT)
 template <class _CharT, class _Traits>
 basic_istream<_CharT, _Traits>&
 basic_istream<_CharT, _Traits>::operator>>(float& __n)
@@ -447,6 +452,7 @@ basic_istream<_CharT, _Traits>::operator>>(long double& __n)
 {
     return _VSTD::__input_arithmetic<long double>(*this, __n);
 }
+#endif  // WASM_FLOAT_SUPPORT
 
 template <class _CharT, class _Traits>
 basic_istream<_CharT, _Traits>&
